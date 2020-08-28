@@ -1,0 +1,15 @@
+<header class="navigation">
+    <div class="navigation__back" (click)="_onBack()">
+        <img src="assets/icons/up-arrow.svg" alt="Arrow up" title="Arrow up" class="navigation__back-icon">
+    </div>
+    <div class="navigation__breadcrumbs">
+        <label>
+            <input type="text" [value]="currentPath" disabled />
+        </label>
+    </div>
+    <div class="navigation__search">
+        <label>
+            <input placeholder="Search app" type="text" #searchRef/>
+        </label>
+    </div>
+</header>

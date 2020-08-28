@@ -1,0 +1,7 @@
+<app-header
+        [currentPath]="currentItemsList[0].parentId ? setCurrentPath() : 'root'"
+        (onSearch)="onSearch($event)" (onBack)="onBack($event)"
+></app-header>
+<app-card-board [itemsList]="currentItemsList"
+                (onPathClick)="onItemCLick($event)"
+></app-card-board>

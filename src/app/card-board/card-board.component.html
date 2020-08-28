@@ -1,0 +1,21 @@
+<div *ngIf="itemsList?.length" class="items">
+    <div class="items__container" role="table" aria-label="Destinations">
+        <div class="flex-table header" role="rowgroup">
+            <div class="flex-row first" role="columnheader" (click)="onSortClick('byName')">Name</div>
+            <div class="flex-row" role="columnheader" (click)="onSortClick('byDate')">Date Modified</div>
+            <div class="flex-row" role="columnheader" (click)="onSortClick('byType')">Type</div>
+            <div class="flex-row" role="columnheader" (click)="onSortClick('bySize')">Size</div>
+        </div>
+        <div class="flex-table row" role="rowgroup" *ngFor="let item of itemsList">
+            <div class="flex-row first" role="cell" (dblclick)="onFolderClick(item, $event)" >
+                <span class="flag-icon">
+                    <img [src]="item.type === 'folder' ? 'assets/icons/folder.svg' : 'assets/icons/document.svg'" alt="File icon" title="File icon">
+                </span>
+                {{!item['children'].length || item.type === 'folder' ? item.path.split('/').pop() : item.path}}
+            </div>
+            <div class="flex-row" role="cell">{{item.modificationDate | date : 'medium'}} </div>
+            <div class="flex-row" role="cell">{{item.type}}</div>
+            <div class="flex-row" role="cell">{{item.size}}</div>
+        </div>
+    </div>
+</div>
